@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  # The Voting API Service
+  api:
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    ports:
+      - "4000:4000"
+    volumes:
+      - ./api/src:/app/src
+
+  # The Frontend Service
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+    volumes:
+      - ./frontend/src:/app/src
+    depends_on:
+      - api
