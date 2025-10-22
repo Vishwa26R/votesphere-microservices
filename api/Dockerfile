@@ -14,7 +14,7 @@ RUN npm install
 COPY . .
 
 # 6. Build the TypeScript code into JavaScript
-RUN tsc
+RUN npm run build
 
 # 7. Expose the port the app runs on
 EXPOSE 4000
