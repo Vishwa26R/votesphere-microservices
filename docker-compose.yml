@@ -18,6 +18,10 @@ services:
       - POSTGRES_DB=votesphere
       - POSTGRES_PORT=5432
 
+    # NEW: Tells this service to wait for the postgres service to start
+    depends_on:
+      - postgres
+
   # The Frontend Service
   frontend:
     build:
