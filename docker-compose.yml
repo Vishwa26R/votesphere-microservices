@@ -9,6 +9,14 @@ services:
       - "4000:4000"
     volumes:
       - ./api/src:/app/src
+    
+    # NEW: Environment variables for the API to connect to the database
+    environment:
+      - POSTGRES_HOST=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres123
+      - POSTGRES_DB=votesphere
+      - POSTGRES_PORT=5432
 
   # The Frontend Service
   frontend:
