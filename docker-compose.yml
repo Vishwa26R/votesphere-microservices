@@ -10,7 +10,7 @@ services:
     volumes:
       - ./api/src:/app/src
     
-    # NEW: Environment variables for the API to connect to the database
+    # Environment variables for the API to connect to the database
     environment:
       - POSTGRES_HOST=postgres
       - POSTGRES_USER=postgres
@@ -18,7 +18,7 @@ services:
       - POSTGRES_DB=votesphere
       - POSTGRES_PORT=5432
 
-    # NEW: Tells this service to wait for the postgres service to start
+    # Tells this service to wait for the postgres service to start
     depends_on:
       - postgres
 
@@ -34,7 +34,7 @@ services:
     depends_on:
       - api
 
-  # NEW: The PostgreSQL Database Service
+  # The PostgreSQL Database Service
   postgres:
     image: postgres:15-alpine  # Use the official Postgres image
     ports:
@@ -45,3 +45,7 @@ services:
       - POSTGRES_DB=votesphere
     volumes:
       - db-data:/var/lib/postgresql/data
+
+# Define named volumes
+volumes:
+  db-data:
