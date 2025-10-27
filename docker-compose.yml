@@ -1,6 +1,6 @@
 
 services:
-  # The Voting API Service
+  # Voting API Service
   api:
     build:
       context: ./api
@@ -22,7 +22,7 @@ services:
     depends_on:
       - postgres
 
-  # The Frontend Service
+  # Frontend Service
   frontend:
     build:
       context: ./frontend
@@ -34,7 +34,7 @@ services:
     depends_on:
       - api
 
-  # The PostgreSQL Database Service
+  # PostgreSQL Database Service
   postgres:
     image: postgres:15-alpine  # Use the official Postgres image
     ports:
