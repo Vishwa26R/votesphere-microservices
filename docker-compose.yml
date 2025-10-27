@@ -33,3 +33,15 @@ services:
       - ./frontend/src:/app/src
     depends_on:
       - api
+
+  # NEW: The PostgreSQL Database Service
+  postgres:
+    image: postgres:15-alpine  # Use the official Postgres image
+    ports:
+      - "5432:5432" # Map port 5432 to your host (for debugging)
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres123
+      - POSTGRES_DB=votesphere
+    volumes:
+      - db-data:/var/lib/postgresql/data
